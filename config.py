@@ -1,5 +1,9 @@
 import os
-SECRET_KEY = os.urandom(32)
+from os import environ
+from dotenv import load_dotenv
+
+load_dotenv('.env')
+SECRET_KEY = environ.get('SECRET_KEY')
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -7,5 +11,5 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 DEBUG = True
 
 # Connect to the database
-SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:grimm@localhost:5432/fyuur'
+SQLALCHEMY_DATABASE_URI = environ.get('DATABASE_URI')
 SQLALCHEMY_TRACK_MODIFICATIONS = False

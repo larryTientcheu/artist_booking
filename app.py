@@ -2,20 +2,18 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-from email.policy import default
 from hashlib import new
-import json
 from os import abort
+import os
 import sys
 from unicodedata import name
 import dateutil.parser
 import babel
-from flask import Flask, render_template, request, Response, flash, redirect, url_for, jsonify
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
-from flask_wtf import Form
 from forms import *
 import config
 from flask_migrate import Migrate
@@ -507,12 +505,12 @@ if not app.debug:
 #----------------------------------------------------------------------------#
 
 # Default port:
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
-# Or specify port manually:
-'''
+# # Or specify port manually:
+
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
-'''
+    port = int(os.environ.get('PORT',5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+
